@@ -129,9 +129,10 @@ class LlavaPlugin(BasePlugin):
             content = message["content"]
             while IMAGE_PLACEHOLDER in content:
                 num_images += 1
-                #content = content.replace(IMAGE_PLACEHOLDER, "{{image}}", 1)
+                content = content.replace(IMAGE_PLACEHOLDER, "{{image}}", 1)
 
             #message["content"] = content.replace("{{image}}", self.image_token * image_seqlen)
+            message["content"] = content.replace("{{image}}", IMAGE_PLACEHOLDER)
 
         if len(images) != num_images:
             raise ValueError("The number of images does not match the number of {} tokens".format(IMAGE_PLACEHOLDER))

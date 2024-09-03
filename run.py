@@ -11,7 +11,8 @@ from llamafactory.eval.evaluator import run_eval
 from llamafactory.extras.env import VERSION, print_env
 from llamafactory.extras.logging import get_logger
 from llamafactory.extras.misc import get_device_count
-from llamafactory.train.tuner import export_model, run_exp
+from llamafactory.train.tuner import export_model
+from src.entry import run_exp
 
 logger = get_logger(__name__)
 
