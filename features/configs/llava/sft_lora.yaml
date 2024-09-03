@@ -1,0 +1,45 @@
+#_base_: ["../default.yaml", "../deepspeed/deepspeed.yaml"]
+
+### model
+model_name_or_path: /root/HF_HOME/llava-1.5-7b-hf
+visual_inputs: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 16
+
+### dataset
+dataset: llava_demo
+image_folder: data/coco2017/train2017
+#streaming: true
+template: vicuna
+cutoff_len: 1024
+max_samples: null
+overwrite_cache: true #true
+preprocessing_num_workers: 1024
+
+### output
+output_dir: saves/llava1_5-7b/lora/sft
+logging_steps: 1
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+#max_steps: 34860 #batch为2时，epoch为3
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+fp16: true
+
+### eval
+val_size: 0.0
+per_device_eval_batch_size: 1
+eval_strategy: "no" #steps
+eval_steps: 500

@@ -1,0 +1,42 @@
+_base_: ["./default.yaml"]
+
+### model
+model_name_or_path: /apdcephfs_qy3/share_301477654/cookieewang/hugging_face_home/Qwen2-0.5B
+
+### method
+stage: sft
+#do_train: true
+finetuning_type: lora
+lora_target: q_proj, v_proj
+
+### dataset
+dataset: identity
+template: qwen
+cutoff_len: 1024
+max_samples: null #1000
+#overwrite_cache: true
+#preprocessing_num_workers: 16
+
+### output
+output_dir: results/Qwen2-0.5B/sft/lora
+#logging_steps: 10
+save_steps: 500
+#plot_loss: true
+#overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 1
+learning_rate: 2.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+fp16: true
+#disable_tqdm: true
+#include_num_input_tokens_seen: true
+
+### eval
+val_size: 0.0
+per_device_eval_batch_size: 2
+eval_strategy: "no"
+#eval_steps: 500

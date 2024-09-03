@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python run.py train configs/train/llama3_lora_sft.yaml

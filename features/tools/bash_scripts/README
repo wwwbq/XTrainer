@@ -1,0 +1,17 @@
+单机单卡：
+CUDA_VISIBLE_DEVICES=0 python run.py train examples/lora_single_gpu/llama3_lora_sft.yaml
+
+单机多卡：
+CUDA_VISIBLE_DEVICES=0,1,2,3 python run.py train examples/lora_multi_gpu/llama3_lora_sft.yaml
+
+多机多卡：
+CUDA_VISIBLE_DEVICES=0,1,2,3 NNODES=2 RANK=0 MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 python run.py train examples/lora_multi_gpu/llama3_lora_sft.yaml
+CUDA_VISIBLE_DEVICES=0,1,2,3 NNODES=2 RANK=1 MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 python run.py train examples/lora_multi_gpu/llama3_lora_sft.yaml
+
+评估：
+CUDA_VISIBLE_DEVICES=0 python run.py eval examples/lora_single_gpu/llama3_lora_eval.yaml
+
+推理：
+CUDA_VISIBLE_DEVICES=0 llamafactory-cli chat examples/inference/llama3_lora_sft.yaml
+
+

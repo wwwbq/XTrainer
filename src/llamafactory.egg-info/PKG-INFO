@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: llamafactory
+Version: 0.8.4.dev0
+Summary: Easy-to-use LLM fine-tuning framework
+Home-page: https://github.com/hiyouga/LLaMA-Factory
+Author: hiyouga
+Author-email: hiyouga@buaa.edu.cn
+License: Apache 2.0 License
+Keywords: LLaMA,BLOOM,Falcon,LLM,ChatGPT,transformer,pytorch,deep learning
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: metrics
+Provides-Extra: deepspeed
+Provides-Extra: liger-kernel
+Provides-Extra: bitsandbytes
+Provides-Extra: hqq
+Provides-Extra: eetq
+Provides-Extra: gptq
+Provides-Extra: awq
+Provides-Extra: aqlm
+Provides-Extra: vllm
+Provides-Extra: galore
+Provides-Extra: badam
+Provides-Extra: adam-mini
+Provides-Extra: qwen
+Provides-Extra: modelscope
+Provides-Extra: dev
+
+llamafactory-cli train examples/lora_single_gpu/llama3_lora_sft.yaml
+python run.py train examples/lora_single_gpu/llama3_lora_sft.yaml
+
+chat 跑通
+eval 测评跑通
+
+# 解决上传失败的问题
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+git init
+
+git add .
+
+(git status)
+
+git commit -m "Initial commit"
+
+git remote add origin reop_url
+
+git push -u origin master

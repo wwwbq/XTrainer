@@ -1,0 +1,3 @@
+### ddp
+ddp_timeout: 180000000
+deepspeed: examples/deepspeed/ds_z2_config.json

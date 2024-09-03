@@ -1,0 +1,26 @@
+### model
+
+### method
+do_train: true
+
+### ddp
+ddp_timeout: 180000000
+
+### dataset
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+logging_steps: 50
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+disable_tqdm: true
+include_num_input_tokens_seen: true
+
+### eval
+val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500

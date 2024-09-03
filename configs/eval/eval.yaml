@@ -1,0 +1,19 @@
+### model
+model_name_or_path: Qwen/Qwen1.5-7B
+cache_dir: /data/wbq/peft-project/model/qwen1.5
+
+### method
+#finetuning_type: lora
+
+### dataset
+task: mmlu
+split: test
+template: fewshot
+lang: en
+n_shot: 5
+
+### output
+save_dir: results/Qwen1.5-7B/eval
+
+### eval
+batch_size: 2
